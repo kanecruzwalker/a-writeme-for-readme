@@ -1,0 +1,23 @@
+{
+  "name": "a-writeme-for-readme",
+  "version": "1.0.0",
+  "description": "Have you ever wanted to save time writing a good ReadMe  and get right to coding??? With this file generator, one can be prompted to input key ingredients for a savory ReadMe and get to coding quicker.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kanercruzwalker/a-writeme-for-readme.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kanercruzwalker/a-writeme-for-readme/issues"
+  },
+  "homepage": "https://github.com/kanercruzwalker/a-writeme-for-readme#readme",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "inquirer": "^7.1.0"
+  }
+}
