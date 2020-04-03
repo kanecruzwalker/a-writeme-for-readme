@@ -9,11 +9,21 @@ inquirer
         type: 'input',
         name: 'gitHubUserName',
         message: "What's your GitHub Username"
+    },
+    {
+        type: 'input',
+        name: 'projectTitle',
+        message: "What is the title of your project?"
     }
   ])
   .then(answers => {
+    
+    // Responses from Inquirer
     console.log(answers.gitHubUserName);
+    console.log(answers.projectTitle);
 
+        
+        // Axios Api Call
         const url = `https://api.github.com/users/${answers.gitHubUserName}`;
 
         axios.get(url)
@@ -31,8 +41,9 @@ inquirer
         console.log(error);
         })
 
-  })
-  .catch(error => {
+
+
+  }).catch(error => {
     if(error.isTtyError) {
         console.log("There was an error");
     } 
