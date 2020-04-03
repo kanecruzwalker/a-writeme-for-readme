@@ -36,12 +36,11 @@ inquirer
     const markDown = `![${userName} avatar](${avatarURL})`
 
     console.log(markDown);
-    
+
     console.log(response.data);    
     console.log(response.data.email);
     
   })
-
 
 // If error this procedure
 .catch(error => {
@@ -49,6 +48,3 @@ inquirer
         console.log("There was an error");
     } 
   });
-
-
-
