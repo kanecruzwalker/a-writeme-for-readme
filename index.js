@@ -1,7 +1,13 @@
 const fs = require("fs");
 const util = require("util");
+
 const inquirer = require("inquirer");
 const axios = require("axios");
+
+// util
+// promisify 
+// fs.writeFile
+const writeFile = util.promisify(fs.writeFile);
 
 inquirer
   .prompt([
@@ -39,12 +45,14 @@ inquirer
 
     console.log(response.data);    
     console.log(response.data.email);
-    
+    return writeFile("readthe.md", markDown)
   })
-
+  .then(() => {
+    console.log("created readme");
+  })
+  
 // If error this procedure
 .catch(error => {
-    if(error.isTtyError) {
         console.log("There was an error");
-    } 
+        process.exit(1);
   });
