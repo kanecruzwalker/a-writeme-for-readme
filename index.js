@@ -17,33 +17,34 @@ inquirer
     }
   ])
   .then(answers => {
-    
     // Responses from Inquirer
     console.log(answers.gitHubUserName);
     console.log(answers.projectTitle);
 
         
-        // Axios Api Call
-        const url = `https://api.github.com/users/${answers.gitHubUserName}`;
+    // Axios Api Call
+    const url = `https://api.github.com/users/${answers.gitHubUserName}`;
+    return axios.get(url)
 
-        axios.get(url)
-        .then(function (response) {
-        // handle success
-        console.log(response.data);    
-        console.log(response.data.avatar_url);
-        console.log(response.data.email);
-        })
+  })
+        // Axios Data Response
+  .then(response => {
 
-        // is this needed???
-        // i feel like only 1 catch is needed 
-        .catch(function (error) {
-        // handle error
-        console.log(error);
-        })
+    const avatarURL = response.data.avatar_url;
+    const userName = response.data.login;
+
+    const markDown = `![${userName} avatar](${avatarURL})`
+
+    console.log(markDown);
+    
+    console.log(response.data);    
+    console.log(response.data.email);
+    
+  })
 
 
-
-  }).catch(error => {
+// If error this procedure
+.catch(error => {
     if(error.isTtyError) {
         console.log("There was an error");
     } 
